@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- Bootstrap core CSS -->
+        <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+        <link href="statics/css/font-awesome.min.css" rel="stylesheet">
+        <link href="statics/icon/favicon.ico" type="image/x-icon" rel="icon">
+        <link href="statics/icon/favicon.ico" type="image/x-icon" rel="shortcut icon">
+        <link rel="stylesheet" href="statics/css/modify&line.css">
+        <link rel="stylesheet" href="statics/css/manager_edit.css">
+
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v3.8.5">
+        <!-- rwd -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                    
+                }
+            }
+        </style>
+
+        <!-- Custom styles for this template -->
+        <link href="statics/css/product.css" rel="stylesheet">
+        <link href="statics/css/jquery-confirm.css" rel="stylesheet">
+
+        <script src="statics/js/jquery-3.4.1.min.js"></script>
+        <script src="statics/js/jquery-confirm.js"></script>
+        
+<!--自寫css(分區)-->
+        <link rel="stylesheet" href="statics/css/div.css">
+    </head>
+    <title> 修改管理員資料 | 藥不藥MY藥局</title>
+</head>
+
+<!-- 藥局的bar-->
+<body style="background-color:#B3DEA5; overflow: visible;">
+
+    <div class="top d-flex flex-column flex-md-row align-items-center border-bottom " >
+
+        <div class="mr-auto p-1"><a href="home_page.html" title="首頁"><img src="statics/icon/LOGO.png" alt="" width="9%"></a></div>      
+        
+    </div>
+        
+    
+<!-- 修改管理員資料、一條線、modify的bar-->  
+    <div id="valuesContainer" >
+        <h1 id="modifychineseTitle">修改管理員資料</h1>
+    </div>
+<!-- 修改管理員資料、一條線、modify的bar--> 
+    
+<!-- 郵件，密碼-->  
+<form action="#" method="post">
+
+    <div id="containemail">
+        
+        <div id="emailbox">
+            <h1 id="emailchinese" style="margin-left: 16px">電子信箱<span style="color:#f54337"> *</span></h1>
+            
+        </div>
+
+        <div id="inputemail">
+            <input id="email" type="text" size="55"  style="height: 27px;" />
+        </div>
+        
+    </div>
+
+    <div id="containpw">
+        
+        <div id="pwbox"> 
+           <h1 id="pwchinese" style="margin-left: 16px">密碼<span style="color:#f54337"> *</span></h1>           
+        </div>
+	   
+        <div id="inputpw">
+            <input id="pw" type="password" size="55"  style="height: 27px;"/>
+        </div>
+        
+    </div>
+        
+
+
+
+
+<!-- 郵件，密碼結束--> 
+    
+<!--更新按鈕-->
+    <div id="renewbuttoncontainer">
+        <div id="renewbutton">
+            <input type="button" value="更新" id="submit" style="outline: none;">
+        </div>
+    </div>
+    </form>
+     <script type="text/javascript">
+     $(document).ready(function() {    
+    	    //從cookie抓取使用者ID的函數
+    	    //function getCookie(name) {
+    	       // const value = `; ${document.cookie}`;
+    	        //const parts = value.split(`; ${name}=`);
+    	       // if (parts.length === 2) return parts.pop().split(';').shift();
+    	  //  }
+    	    //console.log(getCookie('members_id'));
+    	    var $form = $('#submit');
+    	    $form.click(function() {
+    	        updateMember();
+    	    });
+    	    
+    	    function updateMember() {
+    	        var name = $('#name').val();
+    	        var email = $('#email').val();
+    	        var password = $('#pw').val();
+    	        var confirm_password = $('#confirmpw').val();
+
+    	        var password_rule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+    	        if(!password_rule.test(password)) {
+    	            alert("密碼格式不符，長度至少8，且至少包含一個數字和英文字母！");
+    	        }
+    	        else {
+    	                // 將資料組成JSON格式
+    	                var data_object = {
+    	                    //"id": getCookie('userID'),
+    	        
+    	                    "email": email,
+                         "password": password
+
+    	                };
+    	                
+    	                // 將JSON格式轉換成字串
+    	                var data_string = JSON.stringify(data_object);
+    	                console.log(data_string);
+    	                // 發出POST的PUT請求
+    	                $.ajax({
+    	                    type: "PUT",
+    	                    url: "api/update.do",
+    	                    data: data_string,
+    	                    crossDomain: true,
+    	                    cache: false,
+    	                    dataType: 'json',
+    	                    timeout: 5000,
+    	                    success: function (response) {
+    	                        if(response.status == 200){
+    	                            alert('修改成功!');
+    	                            window.location.assign("member_area.html");
+    	                        }
+    	                    },
+    	                    error: function () {
+    	                        alert("無法連線到伺服器！");
+    	                    }
+    	                });
+    	        }
+    	    }
+    	});
+     </script>
+
+</body>
+
+
+</html>

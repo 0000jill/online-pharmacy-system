@@ -1,0 +1,41 @@
+.flex_container {
+    display: flex;
+    justify-content:space-evenly;
+    position: relative;
+}
+.font {
+    color:#fff;
+    text-align:center;
+    font-size:50px;
+    font-family: 'Open Sans', Arial, sans-serif;
+}
+.box {
+    background-color:#3ca45c;
+    margin:0.5%;
+    width:275px;
+}
+.box_normal {
+    background-color:#3ca45c;
+    height: 50px;
+    line-height:50px;
+    flex-grow:1;
+    text-align:center;
+}
+.box_normal a{
+    background-color:#3ca45c;
+    height: 130px;
+    line-height:200px;
+    flex-grow:1;
+    text-align:center;
+}
+.box_normal:hover { /* ·Æ¹«·Æ¤J«ö¶sÅÜ¦â*/
+    
+    border-radius: 20px 20px 20px 20px;
+    background-color: #34ca61;
+    color: #fff;
+}
+
+
+
+
+

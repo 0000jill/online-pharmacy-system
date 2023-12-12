@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- Bootstrap core CSS -->
+        <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+        <link href="statics/css/font-awesome.min.css" rel="stylesheet">
+        <link href="statics/icon/LOGO.png" type="image/x-icon" rel="icon">
+        <link href="statics/icon/LOGO.png" type="image/x-icon" rel="shortcut icon">
+        <link rel="stylesheet" href="statics/css/member&line&register.css">
+        <link rel="stylesheet" href="statics/css/name&email&password.css">
+
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+        <meta name="generator" content="Jekyll v3.8.5">
+        <!-- rwd -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                    font-size: 3.5rem;
+                    
+                }
+            }
+        </style>
+
+        <!-- Custom styles for this template -->
+        <link href="statics/css/product.css" rel="stylesheet">
+        <link href="statics/css/jquery-confirm.css" rel="stylesheet">
+
+        <script src="statics/js/jquery-3.4.1.min.js"></script>
+        <script src="statics/js/jquery-confirm.js"></script>
+        
+<!--自寫css(分區)-->
+        <link rel="stylesheet" href="statics/css/div.css">
+    </head>
+    <title> 會員註冊 | 藥不藥買線上藥局</title>
+</head>
+
+<!-- 書城的bar-->
+<body style="background-color:#B3DEA5; overflow: visible;">
+
+    <div class="top d-flex flex-column flex-md-row align-items-center border-bottom " >
+
+        <div class="mr-auto p-1"><a title="首頁"><img src="statics/icon/LOGO.png" alt="" width="10%"></a></div>
+                
+        <div class="d-flex flex-row">
+            <a class="p-2" href="login.html" style="color:#00796b; font-size:15px; text-decoration:none;"><nobr><strong>登入&nbsp; &nbsp; </strong></nobr></a>
+        </div> 
+    </div>
+        
+    
+<!-- 會員、一條線、register的bar-->  
+    <div id="valuesContainer" >
+        <p id="memberTitle">會員註冊</p>
+        <p id="registerTitle"></p>
+    </div>
+<!-- 會員、一條線、register的bar結束--> 
+    
+<!-- 姓名，郵件，密碼、密碼確認-->  
+   <form id="form" action="#" method="post" accept-charset="utf-8">
+    <div id="containName">
+        
+        <div id="namebox">
+            <h1 id="namechinese" style="margin-left: 16px">姓名<span style="color:red"> *</span></h1>
+            <h1 id="nameenglish" ></h1>
+        </div>
+
+        <div id="inputname">
+            <input id="member_name" type="text" size="55" style="height: 27px;"/>
+        </div>
+        
+    </div>
+
+    <div id="containemail">
+        
+        <div id="emailbox">
+            <h1 id="emailchinese" style="margin-left: 16px">電子信箱<span style="color:red"> *</span></h1>
+            <h1 id="emailenglish"></h1>
+        </div>
+
+        <div id="inputemail">
+            <input id="member_email" type="text" size="55" style="height: 27px;"/>
+        </div>
+        
+    </div>
+
+    <div id="containpw">
+        
+        <div id="pwbox">
+            <h1 id="pwchinese" style="margin-left: 16px">密碼<span style="color:red"> *</span></h1>
+            <h1 id="pwenglish"></h1>
+        </div>
+
+        <div id="inputpw">
+            <input id="member_password" type="password" size="55" style="height: 27px;" />
+        </div>
+        
+    </div>
+
+    <div id="containconfirm">
+        
+        <div id="confirmbox">
+            <h1 id="confirmchinese" style="margin-left: 16px">密碼確認<span style="color:red"> *</span></h1>
+            <h1 id="confirmenglish"></h1>
+        </div>
+
+        <div id="inputconfirm">
+            <input id="member_confirmpw" type="password" size="55" style="height: 27px;"/>
+        </div>
+        
+    </div> 
+   
+<!-- 姓名，郵件，密碼、密碼確認結束--> 
+    
+<!--確認按鈕-->
+    <div id="registerbuttoncontainer">
+        <div id="registerbutton" >
+            <input type="button" id="submit" value="確認註冊">
+        </div>
+    </div>
+	<!--  <input type="button" value="註冊" id="submit">-->
+	</form>			
+    <script type="text/javascript">
+	    $(document).ready(function() {
+	// 處理表單點擊事件
+	    var $form = $('#submit');
+	    $form.click(function() {
+	        submit();
+	    });
+	
+	    function submit() {
+	        var name = $('#member_name').val();
+	        var email = $('#member_email').val();
+	        var password = $('#member_password').val();
+	        var confirm_password = $('#member_confirmpw').val();
+	
+	
+	        var email_rule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+	        var password_rule = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+	
+	        if (!email_rule.test(email)) {
+	            alert("Email格式不符！");
+	        }
+	        else if(!password_rule.test(password)) {
+	            alert("密碼格式不符，長度至少8，且至少包含一個數字和英文字母！");
+	        }
+	        else if(password != confirm_password ) {
+	            alert("密碼驗證不相同");
+	        }
+	        else {
+	            // 將資料組成JSON格式
+	            var data_object = {
+	                "name": name,
+	                "email": email,
+	                "password": password
+	            };
+	
+	            // 將JSON格式轉換成字串
+	            var data_string = JSON.stringify(data_object);
+	
+	            // 發出POST的AJAX請求
+	            $.ajax({
+	                type: "POST",
+	                url: "api/member.do",
+	                data: data_string,
+	                crossDomain: true,
+	                cache: false,
+	                dataType: 'json',
+	                timeout: 5000,
+	                success: function (response) {
+	                    if(response.status == 200){
+	                        alert('註冊成功!');
+	                        window.location.assign("login.html");
+	                    }
+	                    else if(response.status == 400 ) {
+	                        console.log(response);
+	                        alert("新增帳號失敗，帳號重複！");
+	                        window.location.reload();
+	                        }
+	                },
+	                error: function () {
+	                    alert("無法連接伺服器！");
+	                }
+	            });
+	        }
+	    }
+	});
+	</script>
+</body>
+
+
+</html>

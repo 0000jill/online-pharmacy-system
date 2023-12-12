@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>首頁｜藥不藥MY藥局</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+  <link href="statics/css/font-awesome.min.css" rel="stylesheet">
+  <link href="statics/icon/LOGO.png" type="image/x-icon" rel="icon">
+  <link href="statics/icon/LOGO.png" type="image/x-icon" rel="shortcut icon">
+
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+        <link href="statics/css/product.css" rel="stylesheet">
+        <link href="statics/css/ul.css" rel="stylesheet">
+        <link href="statics/css/jquery-confirm.css" rel="stylesheet">
+
+        <script src="statics/js/jquery-3.4.1.min.js"></script>
+        <script src="statics/js/jquery-confirm.js"></script>
+        
+<!--自寫css(分區)-->
+    <link rel="stylesheet" href="statics/css/div.css">
+<style>
+    /* outline属性去掉淡蓝色边框 */
+    input{
+        outline:none;
+    }
+
+    /*搜尋欄位框(含bar跟button)*/
+    .search{
+        position: relative;
+        width: 50%;
+        float: left;
+        margin-left:160px;
+        margin-top: 90px;
+        display:inline;
+    
+        }
+
+    /*搜尋按鈕*/
+    .search-btn{
+        width: 100px;
+        height: 35px;
+        background-color: #3ca45c;
+        color: white;
+        outline:none;
+        border: 2px solid #3ca45c;
+        cursor: pointer; 
+        position: absolute;
+        top: 0;
+        right: -270px; 
+        }
+        
+    /*搜尋欄位框(bar)*/
+    .search-bar{
+        width: 800px;
+        height: 35px;
+        font-size: 13px;
+        color:#3ca45c;
+        padding:9px;
+        border: 3px solid #3ca45c;
+        background-color: white;
+        }
+
+   
+</style>
+<style>
+ #gotop {
+    position:fixed;
+    outline:none;
+    z-index:90;
+    right:30px;
+    bottom:31px;
+    display:none;
+    width:50px;
+    height:50px;
+    color:#fff;
+    background:#009588;
+    line-height:50px;
+    border-radius:50%;
+    transition:all 0.35s;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    }
+    #gotop :hover{
+    background:#00796b;
+    }
+</style>
+
+</head>
+
+<body style="background-color:#B3DEA5; overflow: visible;">
+        <div class="top d-flex flex-column flex-md-row align-items-center border-bottom shadow-sm" >
+
+            <div class="mr-auto p-1"><a href="#" title="首頁"><img src="statics/icon/LOGO.png" alt="" width="10%"></a></div>
+                    
+            <div class="d-flex flex-row">
+                
+                <a href="cart.html" title="購物車"><img src="statics/icon/cart.png" alt="" width="35" height="35" style="margin-right:6px"></a>
+          
+                <a class="p-2" href="edit.html" style="color:#B3DEA5; font-size:13px; text-decoration:none;"><nobr><strong>會員專區</strong></nobr></a>
+                <a class="p-2" href="orderr.html" style="color:#B3DEA5; font-size:13px; text-decoration:none;"><nobr><strong>訂單資訊</strong></nobr></a>      
+            </div> 
+        </div>
+<div class="main" style="background-color:#B3DEA5; padding: 20px">
+            <div class="search" >
+                <input class="search-bar" type="search" name="search" id="search" placeholder="  輸入想搜尋的藥品名稱…">
+                <button class="search-btn" style="outline: none;"><strong>🔍</strong></button>
+            </div>      
+            </div>
+</div>
+
+<div class="flex_container">
+    <div class="box_normal"><span style="font-weight:bold; color:white;font-size:0.5cm">發燒</span></div>
+    <div class="box_normal"><span style="font-weight:bold; color:white;font-size:0.5cm">痠痛</span></div>
+    <div class="box_normal"><span style="font-weight:bold; color:white;font-size:0.5cm">外傷</span></div>
+    <div class="box_normal"><span style="font-weight:bold; color:white;font-size:0.5cm">保健</span></div>
+    <div class="box_normal"><span style="font-weight:bold; color:white;font-size:0.5cm">扭傷</span></div>
+    <div class="box_normal"><span style="font-weight:bold; color:white;font-size:0.5cm">防疫</span></div>
+    <div class="box_normal"><span style="font-weight:bold; color:white;font-size:0.5cm">鼻塞</span></div>
+
+</div>
+
+  <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" style="background-color:#B3DEA5; padding: 20px">
+    <h1 class="display-4"></h1>
+    <p class="lead"></p>
+  </div>
+
+  <div class="album py-5">
+    <div class="container">
+      <div id="product_panel" class="row">
+      </div>
+    </div>
+  </div>
+
+ 
+  <script>   
+    var [client_cart_obj, client_cart_amount]  = getCartDataFromClient();
+    
+    function getAllProduct() {
+      $.ajax({
+        type: "GET",
+        url: "api/product.do",
+        crossDomain: true,
+        cache: false,
+        dataType: 'json',
+        timeout: 5000,
+        success: function (response) {
+          if (response.status == 200) {
+         var product_panel = '';
+         
+         $.each(response.response.data, function (){
+          product_panel += addProduct(this);
+         })
+         
+         $("#product_panel").append(product_panel);
+         setButtonFunction();
+         checkIfExistInCart();
+          }
+        },
+        error: function () {
+          alert("無法連線到伺服器！");
+        }
+      });
+    }
+
+    getAllProduct();
+    
+    function addProduct(data) {
+     let inner_html = '';
+     inner_html += '<div class="col-md-4 bg-transparent">';
+   inner_html += '<div class="card mb-4 shadow-sm">';
+   inner_html += '<img src="statics/img/product/' + data.image + '" width="100%">';
+  inner_html += '<div class="card-body">';
+     inner_html += '<h4 class="font-weight-bold text-center text-truncate">' + data.name + '</h4>';
+            inner_html += '<p class="card-text">' + data.describe + '</p>';
+  inner_html += '<h1 class="card-title pricing-card-title">$' + data.price + ' <small class="text-muted">/ NTD</small></h1>';
+  inner_html += '<div class="d-flex justify-content-between align-items-center">';
+  inner_html += '<div class="btn-group">';
+  inner_html += '<button id="add_cart_' + data.id + '" name="add_cart" type="button" class="btn btn-lg btn-block btn-outline-primary">加入購物車</button>';
+  inner_html += '</div>';
+  inner_html += '</div></div></div></div>';
+     
+  return inner_html;
+    }
+
+    
+    function setButtonFunction() {
+     $('button[name="add_cart"]').click(function () {
+      var action = (this.id).split('_')[0];
+      var destination = (this.id).split('_')[1];
+      var id = (this.id).split('_')[2];
+      addProductToCart(id, 1);
+        });
+    }
+    
+    function getCartDataFromClient() {
+     let cart = JSON.parse(localStorage.getItem("client_cart_obj"));
+     let amount = JSON.parse(localStorage.getItem("client_cart_amount"));
+     cart = !cart ? new Array() : cart;
+     amount = !amount ? new Array() : amount;
+     return [cart, amount];
+    }
+    
+    function addProductToCart(id, amount) {
+     if (!(client_cart_obj.includes(id))) {
+      client_cart_obj.push(id);
+      client_cart_amount.push(amount);
+      updateCartDataToClent();
+     }
+     
+     checkIfExistInCart();
+    }
+    
+    function updateCartDataToClent() {
+     localStorage.setItem("client_cart_obj", JSON.stringify(client_cart_obj));
+     localStorage.setItem("client_cart_amount", JSON.stringify(client_cart_amount));
+    }
+    
+    function checkIfExistInCart() {
+     $('button[name="add_cart"]').each(function (){
+      var action = (this.id).split('_')[0];
+      var destination = (this.id).split('_')[1];
+      var id = (this.id).split('_')[2];
+      if (client_cart_obj.includes(id)) {
+       setButtonState(this.id, false);
+      }
+      else {
+       setButtonState(this.id, true);
+      }
+      
+        });
+    }
+    
+    function setButtonState(id, action) {
+     if (!action) {
+         $('#' + id).prop('disabled', true);
+         $('#' + id).addClass('disabled');
+         $('#' + id).html('已加入');
+     }
+     else {
+      $('#' + id).prop('disabled', false);
+         $('#' + id).removeClass('disabled');
+         $('#' + id).html('加入購物車');
+     }
+    }
+  </script>
+           <a href="index.html" id="gotop">
+                <i class="fa fa-angle-up"></i>
+            </a>
+
+  <script type="text/javascript">
+                $(function() {
+                        $('#gotop').click(function(){
+                        $('html,body').animate({ scrollTop: 0 }, 'slow');   /* 返回到最頂上 */
+                        return false;
+                    });
+                    $(window).scroll(function() {
+                        if ( $(this).scrollTop() > 150){
+                            $('#gotop').fadeIn();
+                        } else {
+                            $('#gotop').fadeOut();
+  }
+                    });
+                });
+                </script>  
+
+</body>
+
+</html>

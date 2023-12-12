@@ -1,0 +1,23 @@
+#valuesContainer {
+                top: 18px;
+                border: 0 px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 48rem;
+                height:6rem;
+                font-weight: bold;
+                background-color: #3CA45C;
+                position: relative;
+                border-radius: 2px;
+}
+
+
+#modifychineseTitle {
+                font-family: sans-serif;
+                font: Source;
+                font-weight: 900;
+                font-size: 40px;
+                line-height: 6rem;
+                text-align: center;
+                color: white;
+        }

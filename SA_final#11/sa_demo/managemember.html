@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>會員管理｜藥不藥MY藥局</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+  <link href="statics/css/font-awesome.min.css" rel="stylesheet">
+  <link href="statics/icon/LOGO.png" type="image/x-icon" rel="icon">
+  <link href="statics/icon/LOGO.png" type="image/x-icon" rel="shortcut icon">
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+        <link href="statics/css/product.css" rel="stylesheet">
+        <link href="statics/css/ul.css" rel="stylesheet">
+        <link href="statics/css/jquery-confirm.css" rel="stylesheet">
+
+        <script src="statics/js/jquery-3.4.1.min.js"></script>
+        <script src="statics/js/jquery-confirm.js"></script>
+        
+<!--自寫css(分區)-->
+    <link rel="stylesheet" href="statics/css/div.css">
+</head>
+
+ <body style="background-color:#B3DEA5; overflow: visible;">
+        <div class="top d-flex flex-column flex-md-row align-items-center border-bottom shadow-sm" >
+
+            <div class="mr-auto p-1"><a href="#" title="首頁"><img src="statics/icon/LOGO.png" alt="" width="10%"></a></div>
+                    
+            <div class="d-flex flex-row">
+                
+               
+            </div> 
+        </div>
+
+ <br>
+ <div style="height: 70px;display:flex; flex-flow: row; justify-content: center; align-items: center; background-color: #B3DEA5;">
+   
+        <div class = "mycartdiv" style="background-color:#3ca45c">
+             <a class = "mycartp" style="font-weight:bold;color:#3ca45c;font-size:40px">-------</a>
+   <a class = "mycartp" style="font-weight:bold;color:white;font-size:40px" >會員管理</a> 
+   <a class = "mycartp" style="font-weight:bold;color:#3ca45c;font-size:40px">-------</a>           
+        </div>
+
+
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="statics/css/cake.generic.css">
+
+    <script src="statics/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+        </div>
+        <div id="content" style="background-color:#B3DEA5">
+            <h2 style="background-color:#B3DEA5"><b><span style="color:#3ca45c">會員清單</span></b></h2>
+
+            <div id="flashMessage" class="message" style="display: none;"></div>
+
+            <table id="table" style="background-color:#B3DEA5">
+                <thead>
+                    <tr style="color:white;background-color:#3ca45c;border:3px #3ca45c solid">
+                        <th>編號</th>
+                        <th>姓名</th>
+                        <th>電郵</th>
+                        <th>功能</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color:#B3DEA5">
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                // 全域變數紀錄SQL指令下的次數
+                var sql_num = 0;
+                function deleteMember(id) {
+                    var check = window.confirm("確認刪除會員？");
+                    if (check == true) {
+                        console.log("You pressed OK!");
+                        var request = {'id': id};
+                        var data_string = JSON.stringify(request);
+                        $.ajax({
+                            type: "DELETE",
+                            url: "api/member.do",
+                            crossDomain: true,
+                            data: data_string,
+                            cache: false,
+                            dataType: 'json',
+                            timeout: 5000,
+                            success: function (response) {
+                                if(response.status == 200){
+                                    alert("已成功刪除會員!");
+                                    getAllMember();
+                                }
+                            
+                                console.log(response);
+                            },
+                            error: function () {
+                                alert("無法連線到伺服器！");
+                            }
+                        });
+                    }
+                    else {
+                        console.log("You pressed Cancel!");
+                    }
+                }
+                function getAllMember() {
+                    // 發出POST的GET請求取得所有會員列表
+                    $.ajax({
+                            type: "GET",
+                            url: "api/member.do",
+                            crossDomain: true,
+                            cache: false,
+                            dataType: 'json',
+                            timeout: 5000,
+                            success: function (response) {
+                                if(response.status == 200){
+                                    updateTable(response.response.data);
+                                    updateSQLTable(response.response);
+                                }
+                                console.log(response);
+                            },
+                            error: function () {
+                                alert("無法連線到伺服器！");
+                            }
+                    });
+                }
+                
+                // 更新會員列表表格
+                function updateTable(data) {
+                    $("#table > tbody").empty();
+                    var table_html = '';
+                    $.each(data, function(index, value) {
+                        table_html += '<tr><td scope="row">' + value['member_id'] + '</td>';
+                        table_html += '<td>' + value['name'] + '</td>';
+                        table_html += '<td>' + value['email'] + '</td>';
+                        table_html += '<td>' +'<a href="javascript: deleteMember(' + value['member_id'] + ');">刪除</a></td></tr>';
+                    })
+
+                    $("#table > tbody").append(table_html);
+                }
+                
+                // 更新SQL指令歷史表格
+                function updateSQLTable(data) {
+                    $("#sql_log > tbody").empty();
+                    var time = (data.time / 1000000).toFixed(2);
+                    var table_html = "";
+                    
+                    sql_num = 0;
+                    sql_num += 1
+
+                    table_html += '<tr>';
+                    table_html += '<td>' + sql_num + '</td>';
+                    table_html += '<td>' + data.sql + '</td>';
+                    table_html += '<td style="text-align: right">' + '0' + '</td>';
+                    table_html += '<td style="text-align: right">' + data.row + '</td>';
+                    table_html += '<td style="text-align: right">' + data.row + '</td>';
+                    table_html += '<td style="text-align: right">' + time + '</td>';
+                    table_html += '</tr>';
+                    $("#sql_log > tbody").append(table_html);
+                    $("#sql_summary").html("(default) " + data.row + " queries took " + time + " ms");
+                }
+                $(document).ready(function() {
+                    getAllMember();
+                });
+            </script>
+        </div>
+        <div id="footer">
+        </div>
+    </div>
+  
+</body>
+
+</html>

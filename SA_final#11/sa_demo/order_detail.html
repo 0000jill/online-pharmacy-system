@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Jekyll v3.8.5">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>訂單詳情｜藥不藥MY藥局</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+  <link href="statics/css/font-awesome.min.css" rel="stylesheet">
+  <link href="statics/icon/favicon.ico" type="image/x-icon" rel="icon">
+  <link href="statics/icon/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link href="statics/icon/LOGO.png" type="image/x-icon" rel="icon">
+  <link href="statics/icon/LOGO.png" type="image/x-icon" rel="shortcut icon">
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <link href="statics/css/product.css" rel="stylesheet">
+  <link href="statics/css/jquery-confirm.css" rel="stylesheet">
+
+  <script src="statics/js/jquery-3.4.1.min.js"></script>
+  <script src="statics/js/jquery-confirm.js"></script>
+  <script src="statics/js/big.min.js"></script>
+
+<!--自寫css(分區)-->
+    <link rel="stylesheet" href="statics/css/div.css">
+</head>
+
+<body style="background-color:#B3DEA5; overflow: visible;">
+        <div class="top d-flex flex-column flex-md-row align-items-center border-bottom shadow-sm" >
+
+            <div class="mr-auto p-1"><a href="homepage.html" title="首頁"><img src="statics/icon/LOGO.png" alt="" width="10%"></a></div>
+                    
+            <div class="d-flex flex-row">
+                
+                <a href="cart.html" title="購物車"><img src="statics/icon/cart.png" alt="" width="35" height="35" style="margin-right:6px"></a>
+                
+            </div> 
+        </div>
+<div class="main" style="background-color:#B3DEA5; padding: 20px">
+  <div class="container">
+
+<div class="table-responsive" padding: 20px;>
+         <table id="table" class="table table-striped table-sm" style="border:3px #ffffff solid;" >
+           <thead>
+             <tr style="background-color:#3ca45c">
+               <th class="text-center" style=" color: white; width: 10%">商品編號</th>
+               <th class="text-center" style=" color: white; width: 40%">品名</th>
+               <th class="text-center" style=" color: white; width: 15%">單價</th>
+               <th class="text-center" style=" color: white; width: 10%">數量</th>
+               <th class="text-center" style=" color: white; width: 15%">小計</th>
+             </tr>
+           </thead>
+           <tbody id="panel">
+           </tbody>
+         </table>
+       </div>
+	  <div class="py-5">    
+	  	<div class="my-3 p-3 bg-white rounded box-shadow">
+        <b><h3 class="border-bottom border-gray pb-2 mb-0">訂單資料</h3></b>
+        
+        <div class="row">
+	        <div class="col media text-muted pt-3">
+	          <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+	            <strong class="d-block text-gray-dark">訂單編號</strong>
+	            <span id="order_id">{{order_id}}</span>
+	          </p>
+	        </div>
+	        
+	        <div class="col media text-muted pt-3">
+             <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+               <strong class="d-block text-gray-dark">修改日期</strong>
+               <span id="modify">{{modify}}</span>
+             </p>
+           </div>
+           
+           <div class="col media text-muted pt-3">
+             <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+               <strong class="d-block text-gray-dark">建立日期</strong>
+               <span id="create">{{create}}</span>
+             </p>
+           </div>
+         </div>
+         
+         <div class="row">
+           <div class="col media text-muted pt-3">
+             <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+               <strong class="d-block text-gray-dark">姓名</strong>
+               <span id="name">{{first_name}}</span>
+             </p>
+           </div>
+           
+          <div class="col media text-muted pt-3">
+            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+              <strong class="d-block text-gray-dark">手機號碼</strong>
+              <span id="phone">{{phone}}</span>
+            </p>
+          </div>
+          
+          <div class="col media text-muted pt-3">
+            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+              <strong class="d-block text-gray-dark">住址</strong>
+              <span id="address">{{address}}</span>
+            </p>
+          </div>
+         </div>
+         
+         <!--<div class="media text-muted pt-3">
+           <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+             <strong class="d-block text-gray-dark">住址</strong>
+             <span id="address">{{address}}</span>
+           </p>
+         </div>  -->
+         
+         <div class="row">
+          <div class="col media text-muted pt-3">
+            <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+              <strong class="d-block text-gray-dark">項目數量</strong>
+              <span id="item">{{item}}</span>
+            </p>
+          </div>
+          
+          <div class="col media text-muted pt-3">
+             <p class="media-body pb-3 mb-0 lh-125 border-bottom border-gray">
+               <strong class="d-block text-gray-dark">商品總數</strong>
+               <span id="quantity">{{quantity}}</span>
+             </p>
+           </div>
+         </div>
+        
+        <H3 class="d-block text-right mt-3">總價：$ <span id="total">{{total}}</span></H3>
+      </div>
+
+       
+       
+     </div>
+  </div>
+
+  <script>
+  //取得網址參數
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var id = url.searchParams.get("id");
+  
+  function getOrderData() {
+	  $.ajax({
+          type: "GET",
+          url: "api/order.do",
+          data: "id=" + id,
+          crossDomain: true,
+          cache: false,
+          dataType: 'json',
+          timeout: 5000,
+          success: function (response) {
+              if(response.status == 200){
+            	  updateHTML(response.response.data);
+              }
+          },
+          error: function () {
+              alert("無法連線到伺服器！");
+          }
+    });
+  }
+  
+  getOrderData();
+  
+  function updateHTML(data) {
+	  $("#order_id").html(data['order_info']['id']);
+	  $("#create").html(data['order_info']['create']);
+	  $("#modify").html(data['order_info']['modify']);
+	  //$("#email").html(data['order_info']['email']);
+	  $("#address").html(data['order_info']['address']);
+	  $("#phone").html(data['order_info']['phone']);
+	  $("#name").html(data['order_info']['name']);
+	  //$("#last_name").html(data['order_info']['last_name']);
+	  $("#item").html(data.product_info.length);
+	  
+	  var total_price = Big(0.0);
+	  var quantity = 0;
+	  var inner_html = "";
+	  
+	  $.each(data.product_info, function (k, v) {
+		  quantity += v['quantity'];
+		  total_price = total_price.plus(v['subtotal']);
+		  inner_html += updateOrderProductTable(v);
+	  });
+	  
+	  $("#quantity").html(quantity);
+	  $("#total").html(total_price.toString());
+	  
+	  $("#table > tbody").empty();
+	  $("#panel").append(inner_html);
+
+  }
+  
+  function updateOrderProductTable(data) {
+	  var table_html = "";
+	  table_html += '<tr id="row_' + data.id + '">';
+    table_html += '<td class="align-middle text-center">' + data.product.id + '</td>';
+    table_html += '<td class="align-middle"><p class="text-break">' + data.product.name + '</p></td>';
+    table_html += '<td class="align-middle text-center"><span id="price_' + data.id + '">' + data.price + '</td>';
+    table_html += '<td class="align-middle text-center">' + data.quantity + '</td>';
+    table_html += '<td class="align-middle text-center"><strong><span id="subtotal_' + data.id + '">' + data.subtotal + '<strong></td>';
+    table_html += '</tr>';
+	  
+	  return table_html;
+	  
+  }
+  </script>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Back to top</a>
+      </p>
+     
+    </div>
+  </footer>
+</body>
+
+</html>
